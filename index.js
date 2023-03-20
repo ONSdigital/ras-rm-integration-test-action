@@ -52,7 +52,7 @@ const run = async () => {
     const survey_modes = ["@SEFT", "@EQ"];
 
     for (let i = 0; i < survey_modes.length; i++) {
-        await publish(projectId, spinnakerTopic, artifactBucket, messageJson, survey_modes[i]);
+        publish(projectId, spinnakerTopic, artifactBucket, messageJson, survey_modes[i]);
     }
 
     const repo = github.context.repo.repo;
