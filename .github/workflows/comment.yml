@@ -1,9 +1,9 @@
 name: comment
 
 on:
-  push:
-    branches:
-      - main
+  issue_comment:
+    types: [created]
+
 
 env:
   SERVICE: acceptance-tests
@@ -11,11 +11,12 @@ env:
 jobs:
   comment:
     runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, '/deploy')
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout
       - uses: ./actions
         with:
-          comment-body: "/deploy"
+          comment-body: ${{ github.event.comment.body }}
           gcp-project: ${{ secrets.GOOGLE_PROJECT_ID }}
           bot-token: ${{ secrets.BOT_TOKEN }}
           spinnaker-topic: ${{ secrets.SPINNAKER_TOPIC }}
