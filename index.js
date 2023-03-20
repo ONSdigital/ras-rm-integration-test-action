@@ -49,7 +49,11 @@ const run = async () => {
       latestHelmChart
     }
 
-    await publish(projectId, spinnakerTopic, artifactBucket, messageJson);
+    const survey_modes = ["@SEFT", "@EQ"];
+
+    for (let i = 0; i < survey_modes.length; i++) {
+        await publish(projectId, spinnakerTopic, artifactBucket, messageJson, survey_modes[i]);
+    }
 
     const repo = github.context.repo.repo;
     const owner = github.context.repo.owner;
@@ -62,7 +66,7 @@ const run = async () => {
 
     const octokit = github.getOctokit(botToken);
 
-    
+
 
     await octokit.issues.createComment({
       owner,
@@ -76,7 +80,7 @@ const run = async () => {
   }
 }
 
-async function publish(projectId, topicName, artifactBucket, messageJson) {
+async function publish(projectId, topicName, artifactBucket, messageJson, feature) {
   const pubSubClient = new PubSub({projectId});
 
   core.info(`helm path: ${messageJson.latestHelmChart}`);
@@ -86,7 +90,7 @@ async function publish(projectId, topicName, artifactBucket, messageJson) {
       service : "case",
       cluster: "dev",
       namespace: "babbal",
-      feature: "@SEFT",
+      feature: feature,
       tag: "pr-118"
     }
  }
