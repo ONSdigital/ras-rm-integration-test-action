@@ -14,7 +14,6 @@ const getInputs = () => {
     spinnakerTopic: core.getInput('spinnaker-topic'),
     artifactBucket: core.getInput('artifact-bucket'),
     projectId: core.getInput('gcp-project'),
-    commentBody: core.getInput("comment-body"),
     latestHelmChart: core.getInput("helm-chart")
   }
 }
@@ -22,20 +21,12 @@ const getInputs = () => {
 const run = async () => {
   try {
     const {botToken, prNumber, spinnakerTopic,
-      artifactBucket, projectId, commentBody, latestHelmChart} = getInputs()
-    const namespace = commentBody.split(" ")[NAMESPACE_POSITION];
+      artifactBucket, projectId, latestHelmChart} = getInputs()
+    const namespace = "babbal";
     let paramKey = "";
     let paramValue = "";
     let configBranch = "main";
-    if (commentBody.split(" ").length > 2) {
-      const params = commentBody.split(" ")[PARAMS_POSITION];
-      if (params.startsWith(CONFIG_BRANCH)) {
-        configBranch = params.split("=")[1];
-      } else {
-        paramKey = params.split("=")[0];
-        paramValue = params.split("=")[1];
-      }
-    }
+   
 
 
     const messageJson = {
