@@ -20,7 +20,6 @@ const run = async () => {
   try {
     const {botToken, spinnakerTopic,
       artifactBucket, projectId} = getInputs()
-
     const namespace = commentBody.split(" ")[NAMESPACE_POSITION];
     let paramKey = "";
     let paramValue = "";
