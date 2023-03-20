@@ -1,0 +1,28 @@
+
+name: "Deploy PR"
+description: "Deploy a PR to a developer environment"
+inputs:
+  comment-body:
+    description: "The comment body to parse"
+    required: true
+  bot-token:
+    description: "Github token"
+    required: true
+  gcp-project:
+    description: "GCP project containing the pubsub topic that Spinnaker listens"
+    required: true
+  spinnaker-topic:
+    description: "pubsub topic"
+    required: true
+  artifact-bucket:
+    description: "bucket containing the helm chart"
+    required: true
+  helm-chart:
+    description: "helm chart path"
+    required: true
+branding:
+  icon: message-square
+  color: blue
+runs:
+  using: "node12"
+  main: "dist/index.js"
