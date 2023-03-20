@@ -10,16 +10,19 @@ const DEPLOY = "/deploy"
 const getInputs = () => {
   return {
     botToken: core.getInput('bot-token'),
+    prNumber: `pr-${github.context.issue.number}`,
     spinnakerTopic: core.getInput('spinnaker-topic'),
     artifactBucket: core.getInput('artifact-bucket'),
     projectId: core.getInput('gcp-project'),
+    commentBody: core.getInput("comment-body"),
+    latestHelmChart: core.getInput("helm-chart")
   }
 }
 
 const run = async () => {
   try {
-    const {botToken, spinnakerTopic,
-      artifactBucket, projectId} = getInputs()
+    const {botToken, prNumber, spinnakerTopic,
+      artifactBucket, projectId, commentBody, latestHelmChart} = getInputs()
     const namespace = commentBody.split(" ")[NAMESPACE_POSITION];
     let paramKey = "";
     let paramValue = "";
