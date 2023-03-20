@@ -14,15 +14,13 @@ const getInputs = () => {
     spinnakerTopic: core.getInput('spinnaker-topic'),
     artifactBucket: core.getInput('artifact-bucket'),
     projectId: core.getInput('gcp-project'),
-    commentBody: core.getInput("comment-body"),
-    latestHelmChart: core.getInput("helm-chart")
   }
 }
 
 const run = async () => {
   try {
     const {botToken, prNumber, spinnakerTopic, 
-      artifactBucket, projectId, commentBody, latestHelmChart} = getInputs()
+      artifactBucket, projectId} = getInputs()
 
     const namespace = commentBody.split(" ")[NAMESPACE_POSITION];
     let paramKey = "";
