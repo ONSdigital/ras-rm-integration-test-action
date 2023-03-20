@@ -1,0 +1,25 @@
+{
+  "name": "ras-rm-spin-action",
+  "version": "1.0.0",
+  "description": "> A GitHub Action for publishing PRs to specific ras-rm environments. Trigger the action by commenting on a pr ``` /deploy <namespace> ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^4.0.0",
+    "@google-cloud/pubsub": "^2.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONSdigital/ras-rm-spinnaker-action.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ONSdigital/ras-rm-spinnaker-action/issues"
+  },
+  "homepage": "https://github.com/ONSdigital/ras-rm-spinnaker-action#readme"
+}

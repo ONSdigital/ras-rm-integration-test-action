@@ -1,0 +1,22 @@
+name: comment
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  SERVICE: acceptance-tests
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./actions
+        with:
+          comment-body: "/deploy"
+          gcp-project: ${{ secrets.GOOGLE_PROJECT_ID }}
+          bot-token: ${{ secrets.BOT_TOKEN }}
+          spinnaker-topic: ${{ secrets.SPINNAKER_TOPIC }}
+          artifact-bucket: ${{ secrets.ARTIFACT_BUCKET }}
+          helm-chart: ${{ env.SERVICE }}/${{ env.SERVICE }}-latest.tgz
