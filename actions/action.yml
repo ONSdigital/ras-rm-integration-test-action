@@ -12,7 +12,7 @@ inputs:
     description: "GCP project containing the pubsub topic that Spinnaker listens"
     required: true
   spinnaker-topic:
-    description: "pub/sub topic"
+    description: "pubfsub topic"
     required: true
   artifact-bucket:
     description: "bucket containing the helm chart"
