@@ -6,7 +6,7 @@ inputs:
     description: "The comment body to parse"
     required: true
   bot-token:
-    description: "Github token"
+    description: "Githudb token"
     required: true
   gcp-project:
     description: "GCP project containing the pubsub topic that Spinnaker listens"
