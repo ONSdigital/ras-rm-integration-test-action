@@ -20,7 +20,7 @@ async function publish(topicName, pubSubClient, data) {
   } catch (error) {
   }
 }
-
+const projectId = "ras-rm-dev"
 const topicName = core.getInput('spinnaker-topic')
 const pubSubClient = new PubSub({projectId});
 const imageTag = "pr-118";
