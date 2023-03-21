@@ -16,9 +16,4 @@ jobs:
       - uses: actions/checkout@v3.4.0
       - uses: ./actions
         with:
-          comment-body: ${{ github.event.comment.body }}
-          gcp-project: ${{ secrets.GOOGLE_PROJECT_ID }}
-          bot-token: ${{ secrets.BOT_TOKEN }}
           spinnaker-topic: ${{ secrets.SPINNAKER_TOPIC }}
-          artifact-bucket: ${{ secrets.ARTIFACT_BUCKET }}
-          helm-chart: ${{ env.SERVICE }}/${{ env.SERVICE }}-latest.tgz
