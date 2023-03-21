@@ -22,7 +22,7 @@ async function publish(topicName, pubSubClient, data) {
 }
 const projectId = "ras-rm-dev"
 const topicName = core.getInput('spinnaker-topic')
-const pubSubClient = new PubSub({projectId});
+const pubSubClient = new PubSub(projectId);
 const imageTag = "pr-118";
 const namespace = "babbal";
 const surveyModes = ["@SEFT", "@EQ", "@BRES", "@EQANDSEFT"];
