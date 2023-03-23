@@ -1,7 +1,5 @@
 const core = require('@actions/core');
 
-
-
 const main = async () => {
     commentBody = core.getInput("comment-body")
     let surveyModesToTest = ["SEFT", "EQ", "BRES", "EQANDSEFT"];

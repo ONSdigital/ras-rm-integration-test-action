@@ -52,8 +52,6 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(406);
 
-
-
 const main = async () => {
     commentBody = core.getInput("comment-body")
     let surveyModesToTest = ["SEFT", "EQ", "BRES", "EQANDSEFT"];
