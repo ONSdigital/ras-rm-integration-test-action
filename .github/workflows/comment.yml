@@ -16,5 +16,4 @@ jobs:
       - uses: ./.github/actions
         with:
           comment-body: ${{ github.event.comment.body }}
-          pr-number: ${{ github.event.issue.pull_request.number }}
-          comment-body1: ${{ github.event.comment.body }}
+          pr-number: ${{ github.event.comment.body }}
