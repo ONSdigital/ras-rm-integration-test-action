@@ -9,7 +9,7 @@ inputs:
     description: "Github token"
     required: true
   gcp-project:
-    description: "GCP project containing the pubsub topic that Spinnaker listens"
+    description: "GCP project containing the pub sub topic that Spinnaker listens"
     required: true
   spinnaker-topic:
     description: "pub sub topic"
